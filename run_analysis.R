@@ -71,5 +71,5 @@ colnames(final) <- colnames
 # 5. From the data set in step 4, create a second, independent tidy data set with the average of each 
 #    variable for each activity and each subject.
 tidy <-aggregate(final[,3:ncol(final)], by =list(SubjectID = final$SubjectID, ActivityID = final$ActivityID),FUN = mean)
-tidy <- second[order(second$SubjectID),]
+tidy <- tidy[order(tidy$SubjectID),]
 write.table(tidy,"./tidy.txt", row.names = FALSE)
